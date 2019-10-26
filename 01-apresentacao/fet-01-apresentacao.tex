@@ -3,7 +3,7 @@ size=17pt,
 paper=smartboard,
 mode=present,
 display=slidesnotes,
-style=sailor,
+style=paintings,
 nopagebreaks,
 blackslide,
 fleqn]{powerdot}
@@ -15,13 +15,13 @@ fleqn]{powerdot}
 \usepackage[utf8]{inputenc}
 
 \pdsetup{
-   lf = {EC01045 PDS},
-   rf = {Apresentação do curso},palette = {Sea}, randomdots={false}
+   lf = {TC01001-FET},
+   rf = {Apresentação do curso},palette = {GoldenGate}, randomdots={false}
 }
 % 
 
 %opening
-\title{\Large EC01045 -- Processamento Digital de Sinais\\ \vspace{1cm}Apresentação do curso}
+\title{\Large TC01001 -- Funções Especiais para Telecomunicações\\ \vspace{1cm}Apresentação (de parte) do curso}
 \author{Ronaldo de Freitas Zampolo\\FCT-ITEC-UFPA}
 \date{ }
 
@@ -41,7 +41,7 @@ fleqn]{powerdot}
                   Instituto de Tecnologia - ITEC\\
                   Universidade Federal do Pará - UFPA
             \item Atendimento:\\
-                  Terça-feira: 13h30 - 14h30\\
+                  Terça-feira: 13h50 - 14h50\\
                   Sala~32, anexo do LEEC\\
                   \texttt{zampolo@ufpa.br}\\ 
                   \texttt{zampolo@ieee.org}\\
@@ -53,16 +53,17 @@ fleqn]{powerdot}
       \begin{slide}[toc=]{Características do Curso}
          \begin{itemize}
             \item Carga horária: 60 h
-            \item Aulas: terças e quintas (das 16h40 às 18h20)
+            \item Aulas: segundas e quartas (das 14h50 às 16h30)
             \item Tópicos:
             \begin{itemize}
-               \item Sinais e sistemas discretos (Cap. 2)
-               \item Transformada Z (Cap. 3)
-               \item Amostragem de sinais contínuos (Cap. 4)
-               \item Análise de sistemas lineares invariantes no domínio transformado (Cap. 5)
-               \item Estruturas para implementação de sistemas discretos (Cap. 6)
-               \item Técnicas para projetos de filtros (Cap. 7)
-               \item Transformada de Fourier discreta (Cap. 8)
+               \item Funções especiais: Legendre
+               \item Equações Fuchsianas
+               \item Função hipereométrica
+               \item Polinômios ortogonais
+	       \item Sistemas de Sturm-Liouville
+               \item Expansão em autofunções
+               \item Séries de Fourier
+	       \item Séries generalizadas
             \end{itemize}
          \end{itemize}         
       \end{slide}
@@ -80,33 +81,33 @@ fleqn]{powerdot}
 %          \end{itemize}
 %       \end{slide}
 %   
-   \section[slide=false]{Objetivos do curso}
-      \begin{slide}[toc=]{Objetivos do curso}
-         \begin{itemize}
-            \item Obter familiaridade:
-            \begin{itemize}
-               \item Matemática
-               \item Conceitos
-            \end{itemize}
-            \item Utilizar ferramentas básicas
-            \begin{itemize}
-               \item Projeto
-               \item Simulação
-               \item Implementação
-            \end{itemize}
-            
-         \end{itemize}
-      \end{slide}
+%   \section[slide=false]{Objetivos do curso}
+%      \begin{slide}[toc=]{Objetivos do curso}
+%         \begin{itemize}
+%            \item Obter familiaridade:
+%            \begin{itemize}
+%               \item Matemática
+%               \item Conceitos
+%            \end{itemize}
+%            \item Utilizar ferramentas básicas
+%            \begin{itemize}
+%               \item Projeto
+%               \item Simulação
+%               \item Implementação
+%            \end{itemize}
+%            
+%         \end{itemize}
+%      \end{slide}
 
-   \section[slide=false]{Aplicações}
-      \begin{slide}[toc=]{Algumas situações de aplicação}
-         \begin{itemize}
-            \item Telecomunicações: equalizadores de canal, repetidores digitais, moduladores/demoduladores...
-            \item Processamento de imagem/vídeo: restauração, codificação, avaliação de qualidade, segmentação, realce...
-            \item Processamento de fala: identificação de locutor, reconhecimento, conversores texto-fala e fala-texto...
-            \item Outros tipos de sinais: sísmico, temperatura, pressão...
-         \end{itemize}
-      \end{slide}
+%   \section[slide=false]{Aplicações}
+%      \begin{slide}[toc=]{Algumas situações de aplicação}
+%         \begin{itemize}
+%            \item Telecomunicações: equalizadores de canal, repetidores digitais, moduladores/demoduladores...
+%            \item Processamento de imagem/vídeo: restauração, codificação, avaliação de qualidade, segmentação, realce...
+%            \item Processamento de fala: identificação de locutor, reconhecimento, conversores texto-fala e fala-texto...
+%            \item Outros tipos de sinais: sísmico, temperatura, pressão...
+%         \end{itemize}
+%      \end{slide}
 
 
   
@@ -115,14 +116,8 @@ fleqn]{powerdot}
          \begin{itemize}
             \item Bibliografia básica
             \begin{itemize}
-               \item \textbf{A. V. Oppenheim, R. W. Schafer. \emph{Processamento 
-em tempo discreto de sinais}, 3ª Ed., Pearson, 2013.}
-            \end{itemize}
-            \item Bibliografia complementar
-            \begin{itemize}
-               \item P. S. R. Diniz, E. A. B. Silva, S. L. Netto. \emph{Processamento 
-               Digital de Sinais - Projeto e análise de sistemas}, 2ª edição, Bookman Company, 2014.
-               \item A. V. Oppenheim, A. S. Willsky. \emph{Sinais e Sistemas}, 2ª edição, Pearson, 2010.
+               \item \textbf{G. B. Arfken, H. J. Weber. \emph{Física Matemática -- métodos matemáticos para engenharia e física}, 6ª Ed., Campus, 2007.}
+               \item \textbf{E. Butkov. \emph{Física Matemática}, Guanabara Koogan, 1988.}
             \end{itemize}
          \end{itemize}
       \end{slide}
@@ -130,14 +125,14 @@ em tempo discreto de sinais}, 3ª Ed., Pearson, 2013.}
    \section[ slide = false ]{Avaliação}
       \begin{slide}[toc=]{Instrumentos}
          \begin{itemize}
-            \item Avaliação continuada
+            %\item Avaliação continuada
             %\item %Exercícios em sala (Es): exercícios rápidos (5 a 10 min em quase todas as aulas) 
-            %\item %Listas de exercício (Le): entregues na última aula da semana (prazo de entrega de uma semana)
-            \item Trabalhos (Tr): em equipe ou individual com apresentação à turma
-            \item Testes escritos (Te): em número de 3; 2ª chamada mediante requerimento
+            \item Listas de exercício (Le)
+            %\item Trabalhos (Tr): em equipe ou individual com apresentação à turma
+            \item Testes escritos (Te)
             \item Cálculo da nota ($N$):
             \begin{equation*}
-               N=\frac{( \text{Tr} \times 4 + \text{Te} \times 6 )} {10}
+               N=\frac{( \text{Le} \times 3 + \text{Te} \times 7 )} {10}
             \end{equation*}
           \end{itemize}
       \end{slide}
@@ -146,7 +141,7 @@ em tempo discreto de sinais}, 3ª Ed., Pearson, 2013.}
          \begin{itemize}
             \item Cálculo da nota ($N$): 
             \begin{equation*}
-               N=\frac{( \text{Tr} \times 4 + \text{Te} \times 6 )} {10}
+               N=\frac{( \text{Le} \times 3 + \text{Te} \times 7 )} {10}
             \end{equation*}
             \item Tabela de mapeamento:
             \begin{table}
@@ -172,9 +167,8 @@ em tempo discreto de sinais}, 3ª Ed., Pearson, 2013.}
                \centering
                \begin{tabular}{|l l|}
                   \hline
-                  Teste 01: & 12/setembro\\
-                  Teste 02: & 05/novembro\\
-                  Teste 03: & 12/dezembro\\
+                  Teste 01: & 20/novembro\\
+                  Teste 02: & 11/dezembro\\
                   %Teste 04: & 13/dezembro\\
                   %Substitutiva: & a definir\\
                   \hline
