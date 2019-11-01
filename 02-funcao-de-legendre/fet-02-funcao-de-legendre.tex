@@ -1,0 +1,87 @@
+\documentclass[
+size=17pt,
+paper=smartboard,
+mode=present,
+display=slidesnotes,
+style=paintings,
+nopagebreaks,
+blackslide,
+fleqn]{powerdot}
+ %wj capsules prettybox
+ %mode = handout or present
+
+\usepackage{amsmath,graphicx,color}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\pdsetup{
+   lf = {TC01001-FET},
+   rf = {Equação de Legendre},palette = {GoldenGate}, randomdots={false}
+}
+% 
+
+%opening
+\title{\Large TC01001 -- Funções Especiais para Telecomunicações\\ \vspace{1cm}Equação de Legendre}
+\author{Ronaldo de Freitas Zampolo\\FCT-ITEC-UFPA}
+\date{ }
+
+\begin{document}
+   \maketitle[randomdots={false}]
+   \begin{slide}{Agenda}
+      \tableofcontents[content=sections]
+   \end{slide}
+
+   \section[ slide = true]{Solução da equação de Legendre}
+      \begin{slide}[toc=]{Solução em séries de potências em um ponto ordinário}
+         \begin{itemize}
+            \item Equações homogêneas
+		    \begin{equation}
+			    y''+P(x)y' + Q(x)y = 0
+		    \end{equation}
+			 Se $x_0$ é um ponto ordinário da equação, então a solução geral em um intervalo contendo $x_0$ é
+		    \begin{align}
+			    y(x) &= \sum_{n=0}^\infty a_n(x-x_0)^n\\
+				 &= a_0y_1(x) + a_1 y_2(x)
+		    \end{align}
+		    onde $a_0$ e $a_1$ são constantes arbitrárias e $y_1(x)$ e $y_2(x)$ são funções analíticas em $x_0$, linearmente independentes.
+         \end{itemize}
+      \end{slide}
+      
+      \begin{slide}[toc=]{Equação de Legendre}
+         \begin{itemize}
+            \item Equação de Legendre
+		    \begin{equation}
+			    (1-x^2)y''- 2xy' + \alpha(\alpha+1)y = 0
+		    \end{equation}
+	    \item[1º] passo: verificar se $x=0$ é um ponto ordinário da equação diferencial
+		    \begin{enumerate}
+			    \item Colocar a equação na forma canônica:
+			    \item Avaliar os limites de $P(x)$ e $Q(x)$ quando $x$ tende a zero
+		            \item Se o limite não tender ao infinito, a solução geral pode ser representada por uma série de potência
+		    \end{enumerate}
+	    \item[2º] passo: representar $y(n)$ como uma série de potência
+	    \item[3º] passo: substituir na equação de Legendre
+	    \item[4º] passo: organizar e agrupar os termos em comum
+	    \item[5ª] passo: obter as fórmulas de recorrência
+         \end{itemize}         
+      \end{slide}
+      
+      \begin{slide}[toc=]{Fórmula de recorrência}
+        \begin{itemize}
+		\item Coeficientes da série de potências
+			\begin{equation}
+				a_{n+2} = \frac{(n-\alpha)(n+\alpha+1)}{(n+2)(n+1)} a_n
+			\end{equation}
+		\item O que acontece quando $n=\alpha$ ?
+          \end{itemize}
+       \end{slide}
+  
+   \section[ slide = false ]{Exercícios e aplicações}
+      \begin{slide}[toc=]{Exercícios}
+         \begin{enumerate}
+            \item Trace gráficos dos polinômios de Legendre para $\alpha=0,1,2,\dots, 8$
+	    \item Descubra três aplicações associadas à equação/aos polinômios de Legendre
+            \end{enumerate}
+      \end{slide}
+      
+\end{document}
