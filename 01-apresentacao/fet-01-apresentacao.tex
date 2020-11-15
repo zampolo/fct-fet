@@ -1,29 +1,12 @@
-\documentclass[
-size=17pt,
-paper=smartboard,
-mode=present,
-display=slidesnotes,
-style=paintings,
-nopagebreaks,
-blackslide,
-fleqn]{powerdot}
- %wj capsules prettybox
- %mode = handout or present
-
-\usepackage{amsmath,graphicx,color}
-\usepackage[brazilian]{babel}
-\usepackage[utf8]{inputenc}
+\input{../slides-common/preambule}
 
 \pdsetup{
-   lf = {TC01001-FET},
-   rf = {Apresentação do curso},palette = {GoldenGate}, randomdots={false}
+   lf = {\cursopequeno},
+   rf = {Apresentação do curso}, palette = {\palette}, randomdots={false},
+   cf = {\theslide}
 }
-% 
 
-%opening
-\title{\Large TC01001 -- Funções Especiais para Telecomunicações\\ \vspace{1cm}Apresentação (de parte) do curso}
-\author{Ronaldo de Freitas Zampolo\\FCT-ITEC-UFPA}
-\date{ }
+\title{\cursogrande\\ \vspace{1cm}Apresentação do curso}
 
 \begin{document}
    \maketitle[randomdots={false}]
@@ -31,7 +14,7 @@ fleqn]{powerdot}
       \tableofcontents[content=sections]
    \end{slide}
 
-   \section[ slide = false ]{Professor }
+   \section[ slide = true ]{Professor }
       \begin{slide}[toc=]{Professor}
          \begin{itemize}
             \item Professor: Ronaldo de Freitas Zampolo
@@ -40,20 +23,20 @@ fleqn]{powerdot}
                   Faculdade de Eng. da Computação e Telecomunicações - FCT\\
                   Instituto de Tecnologia - ITEC\\
                   Universidade Federal do Pará - UFPA
-            \item Atendimento:\\
-                  Terça-feira: 14h00 - 14h50\\
-                  Sala~32, anexo do LEEC\\
+            \item Contato:\\
+                  %Terça-feira: 14h00 - 14h50\\
+                  %Sala~32, anexo do LEEC\\
                   \texttt{zampolo@ufpa.br}\\ 
-                  \texttt{zampolo@ieee.org}\\
-                  \texttt{www.laps.ufpa.br/zampolo}
+                  %\texttt{zampolo@ieee.org}\\
+                  %\texttt{www.laps.ufpa.br/zampolo}
          \end{itemize}
       \end{slide}
       
-   \section[ slide = false ]{Características do Curso}
+   \section[ slide = true ]{Características do Curso}
       \begin{slide}[toc=]{Características do Curso}
          \begin{itemize}
             \item Carga horária: 60 h
-            \item Aulas: segundas e quartas (das 14h50 às 16h30)
+            \item Atividade síncrona: segundas às 7h30
             \item Tópicos:
             \begin{itemize}
                \item Funções especiais: Legendre
@@ -68,50 +51,7 @@ fleqn]{powerdot}
          \end{itemize}         
       \end{slide}
       
-%       \begin{slide}[toc=]{Plataforma Moodle}
-%          \begin{itemize}
-%             \item URL: \texttt{http://www.aedmoodle.ufpa.br/ }
-%             \begin{itemize}
-%                \item \emph{Downloads}
-%                \item Avaliações
-%                \item Avisos
-%                \item \emph{Links}
-%             \end{itemize}
-%             \item Observação: o curso é \emph{presencial}!
-%          \end{itemize}
-%       \end{slide}
-%   
-%   \section[slide=false]{Objetivos do curso}
-%      \begin{slide}[toc=]{Objetivos do curso}
-%         \begin{itemize}
-%            \item Obter familiaridade:
-%            \begin{itemize}
-%               \item Matemática
-%               \item Conceitos
-%            \end{itemize}
-%            \item Utilizar ferramentas básicas
-%            \begin{itemize}
-%               \item Projeto
-%               \item Simulação
-%               \item Implementação
-%            \end{itemize}
-%            
-%         \end{itemize}
-%      \end{slide}
-
-%   \section[slide=false]{Aplicações}
-%      \begin{slide}[toc=]{Algumas situações de aplicação}
-%         \begin{itemize}
-%            \item Telecomunicações: equalizadores de canal, repetidores digitais, moduladores/demoduladores...
-%            \item Processamento de imagem/vídeo: restauração, codificação, avaliação de qualidade, segmentação, realce...
-%            \item Processamento de fala: identificação de locutor, reconhecimento, conversores texto-fala e fala-texto...
-%            \item Outros tipos de sinais: sísmico, temperatura, pressão...
-%         \end{itemize}
-%      \end{slide}
-
-
-  
-   \section[ slide = false ]{Bibliografia}
+   \section[ slide = true ]{Bibliografia}
       \begin{slide}[toc=]{Bibliografia}
          \begin{itemize}
             \item Bibliografia básica
@@ -123,61 +63,109 @@ fleqn]{powerdot}
          \end{itemize}
       \end{slide}
 
-   \section[ slide = false ]{Avaliação}
-      \begin{slide}[toc=]{Instrumentos}
+\section[slide=true]{Objetivos, habilidades e competências}
+      \begin{slide}[toc=]{Objetivos, habilidades competências}
          \begin{itemize}
-            %\item Avaliação continuada
-            %\item %Exercícios em sala (Es): exercícios rápidos (5 a 10 min em quase todas as aulas) 
-            \item Listas de exercício (Le)
-            %\item Trabalhos (Tr): em equipe ou individual com apresentação à turma
-            \item Testes escritos (Te)
-            \item Cálculo da nota ($N$):
-            \begin{equation*}
-               N=\frac{( \text{Le} \times 3 + \text{Te} \times 7 )} {10}
-            \end{equation*}
-          \end{itemize}
-      \end{slide}
-      
-      \begin{slide}[toc=]{Mapeamento nota-conceito}
-         \begin{itemize}
-            \item Cálculo da nota ($N$): 
-            \begin{equation*}
-               N=\frac{( \text{Le} \times 3 + \text{Te} \times 7 )} {10}
-            \end{equation*}
-            \item Tabela de mapeamento:
-            \begin{table}
-               \centering
-               \begin{tabular}{c|c}
-                  \hline\hline
-                  \textbf{Faixa} & \textbf{Conceito}\\
-                  \hline
-                  0 -- 4,9 & INS\\
-                  5,0 -- 6,9 & REG\\
-                  7,0 -- 8,9 & BOM\\
-                  9,0 -- 10,0 & EXC\\
-                  \hline\hline
-               \end{tabular}
-            \end{table}    
+            \item Objetivos:
+		    \begin{itemize}
+			    \item Conhecer as funções de Legendre e suas aplicações
+			    \item Conhecer a função hipergeométrica e suas aplicações
+			    \item Entender o conceito de autofunções
+			    \item Aplicar o conceito de autofunções na resolução de equações diferenciais e decomposição de funções
+			    \item Aplicar e interpretar a decomposição de funções em série de Fourier
+			    \item Generalizar a representação de uma função por expansão em séries
+		    \end{itemize}
+	     \item Habilidades e competências:
+		     \begin{itemize}
+			     \item Conhecimento sobre as funções de Legendre e suas áreas de aplicação
+			     \item Conhecimento sobre a função hipergeométrica e suas áreas de aplicação
+			     \item Entendimento sobre o conceito de autofunções
+			     \item Resolução de equações diferenciais usando autofunções
+			     \item Aplicação e interpretação da decomposição de funções usando série de Fourier
+			     \item Representação de funções por expansão em séries
+	            \end{itemize}
          \end{itemize}
       \end{slide}
-      
-      \begin{slide}[toc=]{Datas dos testes escritos}
+
+    \section[ slide = true]{Metodologia, ferramentas e avaliação}
+      \begin{slide}[toc=]{Metodologia, ferramentas e avaliação}
          \begin{itemize}
-            \item Datas prováveis dos testes escritos:
-            \begin{table}
-               \centering
-               \begin{tabular}{|l l|}
-                  \hline
-                  Teste 01: & 20/novembro\\
-                  Teste 02: & 11/dezembro\\
-                  %Teste 04: & 13/dezembro\\
-                  %Substitutiva: & a definir\\
-                  \hline
-               \end{tabular}
-            \end{table}
-         \end{itemize}
-      \end{slide}
-%   \section[ slide = false ]{Código de conduta}
+	    \item Metodologia utilizada: aula invertida  
+		    \begin{itemize}
+			    \item Uma conferência web semanal (atividade síncrona): resolução de exercícios, aprofundamento do conteúdo
+			    \item Chat no SIGAA (atividade síncrona): plantão de dúvidas
+			    \item Maior parte do estudo será feita de maneira guiada, mas assíncrona: leituras, vídeos, atividades diversas
+		    \end{itemize}
+	    \item Ferramentas usadas:
+		    \begin{itemize}
+			    \item Atividades síncronas: web conferência RNP e SIGAA (Chat)
+			    \item Atividades assíncronas: SIGAA (repositório e sistema de entrega)
+			    \item Simulações, programação: Google Colaboratory (Python)
+		    \end{itemize}
+            \item Avaliação continuada
+            \begin{itemize}
+               \item Trabalhos 
+               \item Tarefas 
+	       \item Listas de exercício
+	    \end{itemize}
+	 \end{itemize}
+	 \end{slide}	  
+\end{document}
+%   \section[ slide = true ]{Avaliação}
+%      \begin{slide}[toc=]{Instrumentos}
+%         \begin{itemize}
+%            %\item Avaliação continuada
+%            %\item %Exercícios em sala (Es): exercícios rápidos (5 a 10 min em quase todas as aulas) 
+%            \item Listas de exercício (Le)
+%            %\item Trabalhos (Tr): em equipe ou individual com apresentação à turma
+%            \item Testes escritos (Te)
+%            \item Cálculo da nota ($N$):
+%            \begin{equation*}
+%               N=\frac{( \text{Le} \times 3 + \text{Te} \times 7 )} {10}
+%            \end{equation*}
+%          \end{itemize}
+%      \end{slide}
+%      
+%      \begin{slide}[toc=]{Mapeamento nota-conceito}
+%         \begin{itemize}
+%            \item Cálculo da nota ($N$): 
+%            \begin{equation*}
+%               N=\frac{( \text{Le} \times 3 + \text{Te} \times 7 )} {10}
+%            \end{equation*}
+%            \item Tabela de mapeamento:
+%            \begin{table}
+%               \centering
+%               \begin{tabular}{c|c}
+%                  \hline\hline
+%                  \textbf{Faixa} & \textbf{Conceito}\\
+%                  \hline
+%                  0 -- 4,9 & INS\\
+%                  5,0 -- 6,9 & REG\\
+%                  7,0 -- 8,9 & BOM\\
+%                  9,0 -- 10,0 & EXC\\
+%                  \hline\hline
+%               \end{tabular}
+%            \end{table}    
+%         \end{itemize}
+%      \end{slide}
+%      
+%      \begin{slide}[toc=]{Datas dos testes escritos}
+%         \begin{itemize}
+%            \item Datas prováveis dos testes escritos:
+%            \begin{table}
+%               \centering
+%               \begin{tabular}{|l l|}
+%                  \hline
+%                  Teste 01: & 20/novembro\\
+%                  Teste 02: & 11/dezembro\\
+%                  %Teste 04: & 13/dezembro\\
+%                  %Substitutiva: & a definir\\
+%                  \hline
+%               \end{tabular}
+%            \end{table}
+%         \end{itemize}
+%      \end{slide}
+%%   \section[ slide = false ]{Código de conduta}
 %      \begin{slide}[toc=]{Código de conduta}
 %      \footnotesize
 %      Todos os envolvidos devem contribuir para que o ambiente em sala de aula seja o mais propício possível para que ocorram o aprendizado e o desenvolvimento pessoal em bases de respeito, justiça e honestidade.
@@ -189,4 +177,3 @@ fleqn]{powerdot}
 %            \item É imprescindível manter a \textbf{integridade} do processo de verificação de aprendizagem. Atos como cópia de trabalho, fraude, fazer-se passar por outra pessoa em momentos de avaliação, bem como o uso de ajudas não autorizadas de qualquer tipo, violam princípios elementares de honestidade e decoro acadêmico e, portanto, não serão toleradas.
 %         \end{itemize}
 %      \end{slide}
-\end{document}

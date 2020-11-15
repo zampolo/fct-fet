@@ -1,0 +1,17 @@
+*.bak
+*.sav
+*.aux
+*.bbl
+*.bcf
+*.bm
+*.blc
+*.dvi
+*.log
+*.pdf
+*.ps
+*.xml
+*.swp
+*.blg
+*.jpg
+*.png
+*.toc
