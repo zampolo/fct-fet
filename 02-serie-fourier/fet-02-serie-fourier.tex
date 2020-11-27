@@ -346,38 +346,160 @@
 					      \item ímpar $\times$ ímpar, \alert{função par}
 					      \item par $\times$ ímpar, \alert{função ímpar}
 				      \end{itemize}
-		      \end{itemize}
-	      }
-	      {
-		      \begin{itemize}
 			      \item Sendo $g(t)$ uma \alert{função ímpar},
 				      \begin{equation*}
 					      \int_{-\epsilon}^\epsilon g(t) dt = 0
 				      \end{equation*}
-			      \item Logo, se $f(t)$ for uma função par, 
+		      \end{itemize}
+	      }
+	      {
+		      \begin{itemize}
+			      \item Sendo $g(t)$ uma \alert{função par},
 				      \begin{equation*}
-					      b_n = 0
+					      \int_{-\epsilon}^\epsilon g(t) dt = 2\int_{0}^\epsilon g(t) dt
 				      \end{equation*}
-			      \item Da mesma forma, se $f(t)$ for uma função ímpar, 
+			      \item Se $f(t)$ for uma função par, 
 				      \begin{equation*}
-					      a_n = 0
+					      a_n = \frac{2}{L}\int_0^L f(t)\cos\left ( n\frac{\pi}{L}t\right )\, dt\qquad b_n = 0
+				      \end{equation*}
+			      \item Se $f(t)$ for uma função ímpar, 
+				      \begin{equation*}
+					      a_n = 0\qquad b_n=\frac{2}{L}\int_0^L f(t)\sin \left ( n\frac{\pi}{L}t\right )\, dt
 				      \end{equation*}
 		      \end{itemize}
 	      }
 
       \end{slide}
 
-%      \section[ slide = true]{Série de Fourier de funções não-periódicas em faixa limitada}
-%      \section[ slide = true]{Série de Fourier complexa}
-%      \section[ slide = true]{Propriedades da série de Fourier}
-%      \begin{slide}[toc = ]{Teorema de Parceval}
-%      \end{slide}
-%      \begin{slide}[toc = ]{Soma de potências de inteiros recíprocos}
-%      \end{slide}
-%      \begin{slide}[toc = ]{Integração da série de Fourier}
-%      \end{slide}
-%      \begin{slide}[toc = ]{Diferenciação da série de Fourier}
-%      \end{slide}
+      \section[ slide = true]{Série de Fourier de funções não-periódicas em faixa limitada}
+      \begin{slide}{Representação de funções em faixa limitada}
+	      \begin{itemize}
+		      \item Ideia principal: usar série de Fourier para representar funções não periódicas em um determinado intervalo
+		      \item Estratégia: considerar que fora do intervalo de interesse a função se repete, ou seja, é periódica
+		      \item Estratégia melhorada: a partir da função original, formar funções periódicas pares (\emph{half-range cosine expansion}) ou ímpares (\emph{half-range sine expansion})
+	      \end{itemize}
+      \end{slide}
+      
+      \begin{slide}{Estratégia melhorada - exemplo}
+	      \twocolumn
+	      {
+		      \begin{itemize}
+			      \item Função original\\
+				      \begin{center}
+				      \includegraphics[width=0.7\textwidth]{figs/func}
+				      \end{center}
+		      \end{itemize}
+
+	      }{
+	      	      \begin{itemize}
+	      		      \item Função extendida par\\
+				      \begin{center}
+				      \includegraphics[width=0.5\textwidth]{figs/func-par}
+				      \end{center}
+			      \item Função extendida ímpar\\
+				      \begin{center}
+				      \includegraphics[width=0.5\textwidth]{figs/func-impar}
+				      \end{center}
+		      \end{itemize}
+	      }
+      \end{slide}
+
+      \section[ slide = true]{Série de Fourier complexa}
+      \begin{slide}{Série de Fourier complexa}
+	      \twocolumn
+	      {
+	      Seja $f(t)$ expressa pela série trigonométrica
+	      \begin{equation*}
+		      f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty \left [ a_n \cos \left ( n\frac{\pi}{L}t \right ) + b_n \sin \left ( n\frac{\pi}{L}t \right )\right ]
+	      \end{equation*}
+	      Usando a fórmula de Euler
+	      \begin{align*}
+		      \cos \left ( n\frac{\pi}{L}t \right ) =& \frac{e^{i\left ( n\frac{\pi}{L}t \right )} + e^{-i\left ( n\frac{\pi}{L}t \right )}}{2}\\ 
+		      \sin \left ( n\frac{\pi}{L}t \right ) =& \frac{e^{i\left ( n\frac{\pi}{L}t \right )} - e^{-i\left ( n\frac{\pi}{L}t \right )}}{2i} 
+	      \end{align*}
+	      A série pode, então, ser expressa como
+	      \begin{equation*}
+		      f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty \left [ c_n e^{i\left ( n\frac{\pi}{L}t \right )} + c_{-n} e^{-i\left ( n\frac{\pi}{L}t \right )} \right ]
+	      \end{equation*}
+	      }
+	      {
+		      Onde
+		      \begin{align*}
+			      c_n =& \frac{a_n}{2} + \frac{b_n}{2i} = \frac{1}{2L}\int_{-L}^L f(t)e^{-i\left ( n\frac{\pi}{L}t \right )}\, dt\\
+			      c_{-n} =& \frac{a_n}{2} - \frac{b_n}{2i} = \frac{1}{2L}\int_{-L}^L f(t)e^{i\left ( n\frac{\pi}{L}t \right )}\, dt\\
+			      c_0 =& \frac{a_0}{2}
+		      \end{align*}
+		      Pode-se expressar a série como 
+	      \begin{equation*}
+		      f(t) = \sum_{n=-\infty}^\infty c_n e^{i\left ( n\frac{\pi}{L}t \right )}
+	      \end{equation*}
+	      Onde 
+	      \begin{equation*}
+			      c_n =\frac{1}{2L}\int_{-L}^L f(t)e^{-i\left ( n\frac{\pi}{L}t \right )}\, dt
+	      \end{equation*}
+	      }
+      \end{slide}
+
+      \section[ slide = true]{Propriedades da série de Fourier}
+      \begin{slide}[toc = ]{Propriedades da série de Fourier}
+		      \begin{itemize}
+			      \item Teorema de Parceval ou teorema da energia
+				      \begin{equation*}
+					      \frac{1}{L} \int_{-L}^L [f(t)]^2\, dt = \frac{1}{4}a_0^2 + \frac{1}{2}\sum_{n=1}^\infty (a_n^2+b_n^2)	 
+			      	      \end{equation*}
+			      \item Soma de potências de inteiros recíprocas
+		      \end{itemize}
+	      \twocolumn
+	      {
+				      \begin{align*}
+					      f(x) =& f(x+2\pi)\\
+					      f(x) =& \begin{cases} -k \quad -\pi < x < 0\\k \quad 0<x<\pi\end{cases}\\
+						   =& \frac{4k}{\pi}\left (\sin x + \frac{1}{3}\sin 3x + \frac{1}{5}\sin 5x  + \dots \right )
+				      \end{align*}
+				      Para $x = \pi/2$,
+				      \begin{align*}
+					      f\left (\frac{\pi}{2} \right ) =& k = \frac{4k}{\pi}\left (1 - \frac{1}{3} + \frac{1}{5} + \dots \right )
+				      \end{align*}
+	      }
+	      {
+		      \begin{align*}
+			      \frac{\pi}{4} =&\left (1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots \right )\\
+					    =&\sum_{n=1}^\infty \frac{(-1)^{n+1}}{2n-1}\qquad \text{(Leibniz, 1673)}
+		      \end{align*} 
+
+	      }
+
+      \end{slide}
+      \begin{slide}[toc = ]{Propriedades da série de Fourier}
+	      Mais alguns exemplos:
+	      \begin{itemize}
+		      \item Exemplo 01
+			      \begin{equation*}
+				      \frac{\pi^2}{8} = 1+\frac{1}{3^2} +\frac{1}{5^2} +\dots = \sum_{n=1}^\infty \frac{1}{(2n-1)^2}
+			      \end{equation*}
+			      Dica: usar o teorema de Parseval no exemplo anterior.
+		      \item Exemplo 02
+			      \begin{equation*}
+				      f(x) = x^2 \text{ para } -1<x<1, \text { e } f(x+2) = f(x)
+			      \end{equation*}
+			      Mostre que
+				      \begin{align*}
+					      \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n^2} =& \frac{\pi^2}{12} &
+					      \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}\\
+					      \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n^3} =& \frac{\pi^3}{32} &
+					      \sum_{n=1}^\infty \frac{1}{n^4} = \frac{\pi^4}{90}
+				      \end{align*}
+
+	      \end{itemize}
+      \end{slide}
+      \begin{slide}[toc = ]{Propriedades da série de Fourier}
+	      Integração da série de Fourier
+      \end{slide}
+
+      \begin{slide}[toc = ]{Propriedades da série de Fourier}
+	      Diferenciação da série de Fourier
+      \end{slide}
+
 %      \section[ slide = true]{Série de Fourier e equações diferenciais}
 %      \begin{slide}[toc = ]{Equação diferencial com condições de contorno}
 %      \end{slide}
