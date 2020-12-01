@@ -445,7 +445,7 @@
 		      \begin{itemize}
 			      \item Teorema de Parceval ou teorema da energia
 				      \begin{equation*}
-					      \frac{1}{L} \int_{-L}^L [f(t)]^2\, dt = \frac{1}{4}a_0^2 + \frac{1}{2}\sum_{n=1}^\infty (a_n^2+b_n^2)	 
+					      \frac{1}{2L} \int_{-L}^L [f(t)]^2\, dt = \frac{1}{4}a_0^2 + \frac{1}{2}\sum_{n=1}^\infty (a_n^2+b_n^2)	 
 			      	      \end{equation*}
 			      \item Soma de potências de inteiros recíprocas
 		      \end{itemize}
@@ -493,13 +493,63 @@
 	      \end{itemize}
       \end{slide}
       \begin{slide}[toc = ]{Propriedades da série de Fourier}
-	      Integração da série de Fourier
+	      \begin{itemize}
+		      \item Integração da série de Fourier
+	      \begin{itemize}
+		      \item Premissa: integrais de senos e cossenos são simples
+		      \item Ideia: integrar os termos da série trigonométrica ao invés da função $f(t)$
+			      \begin{align*}
+				      f(t) =& \frac{a_0}{2} + \sum_{n=1}^\infty \left [ a_n \cos \left ( n\frac{\pi}{L}t \right ) + b_n \sin \left ( n\frac{\pi}{L}t \right )\right ]\\
+				      \int f(t)\, dt =& \int\frac{a_0}{2}\, dt + \int \left \{ \sum_{n=1}^\infty \left [ a_n \cos \left ( n\frac{\pi}{L}t \right ) + b_n \sin \left ( n\frac{\pi}{L}t \right )\right ] \right \}\, dt\\
+				      =& \int\frac{a_0}{2}\, dt + \sum_{n=1}^\infty \left [ a_n \int \cos \left ( n\frac{\pi}{L}t \right )\, dt + b_n \int \sin \left ( n\frac{\pi}{L}t \right )\, dt \right ]\\
+					=& \frac{a_0}{2}t + \sum_{n=1}^\infty \left [ a_n \frac{\sin \left ( n\frac{\pi}{L}t \right )}{n\frac{\pi}{L}} - b_n \frac{\cos \left ( n\frac{\pi}{L}t \right )}{n\frac{\pi}{L}} \right ] + C\\
+					=& \frac{a_0}{2}t + \sum_{n=1}^\infty \left [ \frac{a_nL}{n\pi}\sin \left ( n\frac{\pi}{L}t \right ) -\frac{b_n L}{n\pi} \cos \left ( n\frac{\pi}{L}t \right ) \right ]+ C\\
+			      \end{align*}
+	      \end{itemize}
+	      \end{itemize}
       \end{slide}
 
       \begin{slide}[toc = ]{Propriedades da série de Fourier}
-	      Diferenciação da série de Fourier
+	      \begin{itemize}
+		      \item Diferenciação da série de Fourier
+			      \begin{itemize}
+				      \item Ideia: mesmo procedimento usado para integração
+				      \item Cuidado: é necessário atenção com a convergência da série
+				      \item Análise: considere que $f(x)$ é contínua no intervalo $-L<t<L$ e que sua derivada pode ser expandida em outra série de Fourier
+					      \begin{align*}
+						      f^\prime (t) =& \frac{a_0^\prime}{2} + \sum_{n=1}^\infty \left [ a_n^\prime  \cos \left ( n\frac{\pi}{L}t \right ) + b_n^\prime \sin \left ( n\frac{\pi}{L}t \right )\right ]
+					      \end{align*}
+					      onde 
+					      \begin{align*}
+						      a_n^\prime =& \frac{1}{L}\int_{-L}^Lf^\prime (t) \cos\left (n\frac{\pi}{L}t\right )\, dt \\
+						                 =& \frac{1}{L}\left [f(L) - f(-L)\right ] \cos n\pi + \frac{n\pi}{L}b_n \qquad\text{usar integração por partes !!}\\
+								 b_n^\prime =& \frac{1}{L}\left [f(L) - f(-L)\right ] \sin n\pi - \frac{n\pi}{L}a_n \qquad\text{obtido pelo mesmo procedimento}
+					      \end{align*}
+			      \end{itemize}
+	      \end{itemize}
       \end{slide}
 
+      \begin{slide}[toc = ]{Propriedades da série de Fourier}
+	      \begin{itemize}
+		      \item Diferenciação da série de Fourier
+			      \begin{itemize}
+				      \item Análise (cont.): diferenciando diretamente a série trigonométrica para $f(t)$
+					      \begin{align*}
+						      f^\prime (t) =&\frac{d}{dt}\left \{\frac{a_0}{2} + \sum_{n=1}^\infty \left [ a_n  \cos \left ( n\frac{\pi}{L}t \right ) + b_n \sin \left ( n\frac{\pi}{L}t \right )\right ]\right \}\\
+						      =& \sum_{n=1}^\infty \left [- a_n\frac{n\pi}{L}  \sin \left ( n\frac{\pi}{L}t \right ) + b_n \frac{n\pi}{L}\cos \left ( n\frac{\pi}{L}t \right )\right ]
+					      \end{align*}
+					      onde 
+					      \begin{align*}
+						      a_n^\prime =& \frac{n\pi}{L}b_n\\
+					              b_n^\prime =& - \frac{n\pi}{L}a_n
+					      \end{align*}
+					      A equivalência do resultado acima com o do slide anterior ocorre quando
+					      \begin{equation*}
+						      f(L) = f(-L)\qquad \text{condição \emph{head equals tail} (a ser satisfeita!)}
+					      \end{equation*}
+			      \end{itemize}
+	      \end{itemize}
+      \end{slide}
 %      \section[ slide = true]{Série de Fourier e equações diferenciais}
 %      \begin{slide}[toc = ]{Equação diferencial com condições de contorno}
 %      \end{slide}
