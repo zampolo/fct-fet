@@ -1,0 +1,392 @@
+\input{../slides-common/preambule}
+
+\pdsetup{
+   lf = {\cursopequeno},
+   rf = {Funções ortogonais e série de Fourier generalizada}, palette = {\palette}, randomdots={false},
+   cf = {\theslide}
+}
+
+\title{\cursogrande\\ \vspace{1cm}Funções ortogonais e série de Fourier generalizada}
+
+\begin{document}
+   \maketitle[randomdots={false}]
+   \begin{slide}{Agenda}
+      \tableofcontents[content=sections]
+   \end{slide}
+
+   \section[ slide = true ]{Introdução}
+      \begin{slide}[toc=]{Introdução}
+		\begin{itemize}
+			\item Ideias básicas: 
+				\begin{itemize}
+					\item Funções podem ser consideradas como vetores 
+					\item O conceito de produto escalar pode ser aplicado para funções
+					\item A concepção de vetores ortogonais pode ser generalizada para funções
+					\item Funções seno e cosseno são bases em um espaço de funções
+					\item Há outras funções base que podem ser usadas para decompor funções
+					\item A série de Fourier é um caso particular dessa teoria (teoria de Sturm-Liouville) 
+				\end{itemize}
+		\end{itemize}
+      \end{slide}
+
+      
+   \section[ slide = true ]{Funções como vetores em um espaço vetorial de dimensão infinita}
+      \begin{slide}[toc=]{Espaço vetorial}
+         \begin{itemize}
+		 \item Operações entre vetores e suas propriedades\vspace{0.5cm}
+			 \begin{itemize}
+					 \small
+				 \twocolumn
+				 {
+				 \item Adição entre vetores é comutativa e associativa
+					 \begin{align*}
+						 \mathbf a + \mathbf b =& \mathbf b + \mathbf a \\
+						 (\mathbf a + \mathbf b) + \mathbf c =& \mathbf a + (\mathbf b +\mathbf c )
+					 \end{align*}
+				 \item Multiplicação por escalar é distributiva e associativa
+					 \begin{align*}
+						 \alpha (\mathbf a + \mathbf b) =& \alpha \mathbf a + \alpha \mathbf b\\
+						 (\alpha + \beta) \mathbf a =& \alpha \mathbf a + \beta \mathbf a\\
+						 \alpha(\beta\mathbf a) =& (\alpha\beta)\mathbf a
+					 \end{align*}
+					 onde $\alpha$ e $\beta$ são escalares
+				 \item Existe um vetor $\mathbf 0$, tal que
+					 \begin{align*}
+						 \mathbf a + \mathbf 0 = \mathbf a
+					 \end{align*}
+				}{
+				 \item A todo vetor $\mathbf a$ corresponde um vetor $-\mathbf a$, tal que
+					 \begin{equation*}
+						 \mathbf a + (-\mathbf a) = \mathbf 0
+					 \end{equation*} 
+				 \item Multiplicação por escalar unitário
+					 \begin{equation*}
+						 1  \mathbf a = \mathbf a
+					 \end{equation*}
+				 \item Multiplicação por escalar zero
+					 \begin{equation*}
+						 0 \mathbf a = \mathbf 0
+					 \end{equation*}
+				 }
+			 \end{itemize}
+	 \end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Espaço vetorial}
+	 \small
+         \begin{itemize}
+		 \item Sejam $f(x)$, $g(x)$, $h(x)$, ... funções definidas no intervalo $[a,b]$, ou seja, $a\leq x \leq b$ \vspace{0.5cm}
+			 \begin{itemize}
+				 \twocolumn
+				 {
+				 \item Adição entre funções é comutativa e associativa
+					 \begin{align*}
+						 f(x) + g(x) =& g(x) + f(x) \\
+						 [f(x)+ g(x)] + h(x) =& f(x) +[g(x) +f(x)]
+					 \end{align*}
+				 \item Multiplicação por escalar é distributiva e associativa
+					 \begin{align*}
+						 \alpha [f(x) + g(x)] =& \alpha f(x) + \alpha g(x)\\
+						 (\alpha + \beta) f(x) =& \alpha f(x) + \beta f(x)\\
+						 \alpha[\beta f(x)] =& [\alpha\beta]f(x)
+					 \end{align*}
+					 onde $\alpha$ e $\beta$ são escalares
+				 \item Existe um elemento nulo da adição, tal que
+					 \begin{align*}
+						 f(x) + 0 = f(x)
+					 \end{align*}
+				}{
+				\item A toda função $f(x)$ corresponde uma função $-f(x)$, tal que
+					 \begin{equation*}
+						 f(x) + [-f(x)] =  0
+					 \end{equation*} 
+				 \item Multiplicação por escalar unitário
+					 \begin{equation*}
+						 1  f(x) = f(x)
+					 \end{equation*}
+				 \item Multiplicação por zero
+					 \begin{equation*}
+						 0 f(x) =  0
+					 \end{equation*}
+				 }
+			 \end{itemize}
+		 \item \alert{Assim, o conjunto de todas as funções de $x$ definidas em um certo intervalo constituem um espaço vetorial !!}
+	 \end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Espaço vetorial}
+	      \begin{itemize}
+		      \item Dimensão de um espaço vetorial:
+			      \begin{itemize}
+				      \item Seja um vetor $\mathbf v$ onde:
+					      \begin{align*}
+						      \mathbf v =& v_1\mathbf a_x + v_2 \mathbf a_y + v_3 \mathbf a_z\\
+						                =& (v_1, v_2, v_3)
+					      \end{align*}
+					      O vetor $\mathbf v$ define um vetor genérico no espaço \alert{$\mathbb R^3$}\\
+				      \item O vetor $\mathbf g$ por sua vez
+					      \begin{equation*}
+						      \mathbf g = (g_1, g_2,\dots, g_n)
+					      \end{equation*}
+					      está definido no espaço \alert{$\mathbb R^n$.}
+				      \item Considere agora uma função $f(x) = 2+x$ para $0\leq x \leq 1$. Como há infinitos valores da função $f(x)$ no intervalo mencionado, o espaço correspondente é o \alert{$\mathbb R^\infty$} !!
+			       \end{itemize}
+	      \end{itemize}
+      \end{slide}
+      
+      \begin{slide}[toc=]{Produto interno}
+	      \begin{itemize}
+			      \twocolumn{
+		      \item Representação
+			      \begin{align*}
+				      \left <\mathbf u, \mathbf v\right > =& \mathbf u \cdot \mathbf v = \left <\mathbf u | \mathbf v\right >\\
+				      =& |\mathbf u||\mathbf v|\cos \theta
+			      \end{align*}	
+		      \item Para vetores no $\mathbb R^3$:
+			      \begin{align*}
+				      \left <\mathbf u,\mathbf v \right > =& u_1v_1+u_2v_2+u_3v_3\\
+				      =& \sum_{i=1}^3u_iv_i
+			      \end{align*}
+		      \item Para vetores no $\mathbb R^n$:
+			      \begin{align*}
+				      \left <\mathbf u,\mathbf v \right > =& u_1v_1+u_2v_2+\cdots + u_nv_n\\
+				      =& \sum_{i=1}^nu_iv_i
+			      \end{align*}
+			      }
+			      {
+		       \item Propriedades
+			       \begin{itemize}
+				       \item Comutatividade
+					       \begin{equation*}
+						       \left < \mathbf u, \mathbf v \right > = \left < \mathbf v, \mathbf u \right >
+					       \end{equation*}
+				       \item Linearidade
+					       \begin{equation*}
+						       \left < \alpha\mathbf u+\beta\mathbf v, \mathbf w\right > = \alpha\left <\mathbf u, \mathbf w\right> + \beta \left <\mathbf v, \mathbf w\right >
+					       \end{equation*}
+				       \item Comprimento de um vetor
+					       \begin{equation*}
+						       ||\mathbf u||= \left (\left< \mathbf u, \mathbf u\right >\right )^{1/2} = \left (\sum_{i=1}^n u_i u_i\right )^{1/2}
+					       \end{equation*}
+					       $\left < \mathbf u, \mathbf u\right > > 0\quad \forall \mathbf u \neq \mathbf 0$
+			       \end{itemize}
+			      }
+            \end{itemize}
+      \end{slide}
+
+     \begin{slide}[toc=]{Produto interno em espaço vetorial complexo}
+	     \begin{itemize}
+		     \item Definição:
+			     \begin{equation*}
+				     \left < \mathbf u, \mathbf v\right > = \sum_{i=1}^n u_i^\ast v_i
+			     \end{equation*}
+		     \item Propriedades:
+			     \begin{itemize}
+				     \item A comutatividade é substituída por
+					     \begin{equation*}
+						     \left < \mathbf u, \mathbf v\right > = \left (\left < \mathbf v, \mathbf u\right > \right )^\ast
+					     \end{equation*}
+				     \item Se $\alpha$ é um número complexo:
+					     \begin{align*}
+						     \left <\alpha \mathbf u, \mathbf v\right > =&\alpha^\ast \left < \mathbf u, \mathbf v\right >\\ 
+						     \left <\mathbf u, \alpha \mathbf v\right > =&\alpha \left < \mathbf u, \mathbf v\right > 
+					     \end{align*}
+			     \end{itemize}
+	     \end{itemize}
+     \end{slide}
+     
+     \begin{slide}[toc=]{Definiçao mais ampla de produto interno para vetores no $\mathbb C^n$}
+	     \begin{align*}
+		     \left < \mathbf u, \mathbf v\right > =& u_1^\ast v_1 w_1 + u_2^\ast v_2 w_2+ \cdots + u_n^\ast v_n w_n \\
+		     =& \sum_{i=1}^n \mathbf u_i^\ast v_i w_i
+	     \end{align*}
+	     onde $w_i$ é um escalare fixo, real e positivo para cada $i$.
+	     \begin{itemize}
+		     \item Mostre que a definição mais abrangente atende aos axiomas de definição de produto interno.
+		     \item Calcule o produto interno entre os vetores abaixo:
+			     \begin{align*}
+				     \mathbf u =& (1,2)\\
+				     \mathbf v =& (3,-4)\\
+				     w_1 =& 2, \qquad w_2 = 3
+			     \end{align*}
+	     \end{itemize}
+     \end{slide}
+
+     \section[slide=True]{Funções ortogonais}
+
+     \begin{slide}[toc=]{Produto interno de funções}
+	     \begin{itemize}
+			     \twocolumn{
+		     \item Definição:
+			     \begin{equation*}
+				     <f(x),g(x)> = \int_a^bf^\ast(x)g(x)w(x)\,dx
+			     \end{equation*}
+			     onde $w(x)$ é uma função real e positiva
+		     \item Duas funções são ditas \emph{ortogonais} se
+			     \begin{align*}
+				     <f(x),g(x)> &= \int_a^bf^\ast(x)g(x)w(x)\,dx\\&=0
+			     \end{align*}}
+			     {
+		     \item A \emph{norma} é definida como 
+			     \begin{align*}
+				     ||f(x)|| &= <f(x),f(x)>^{1/2}\\
+					      &= \left [\int_a^bf^\ast(x)f(x)w(x)\,dx \right ]^{1/2}\\
+					      &= \left [\int_a^b|f(x)|^2w(x)\,dx \right ]^{1/2}
+			     \end{align*}
+			     Se $||f(x)||=1$, a função é dita \emph{normalizada}.}
+	     \end{itemize}
+     \end{slide}
+
+     \begin{slide}[toc=]{Ortogonalização de Gram-Schmidt}
+	     \begin{itemize}
+		     \item Seja um conjunto de funções ortogonais:
+			     \begin{equation*}
+				     \{ \psi_n(x) \},\quad n=1,2, \dots
+			     \end{equation*}
+			     onde $<\psi_i(x), \psi_j(x)> = 0,\quad i\neq j$.
+		     \item A partir do conjunto de funções acima, pode-se criar um conjunto de funções ortonormais $\{\phi_n(x)\}$:
+			     \begin{equation*}
+				     \phi_n(x)=\frac{\phi_n(x)}{||\psi_n(x)||}\qquad\qquad 
+				     <\phi_i(x),\phi_j(x)>=\begin{cases} 0, & i\neq j\\1, & i=j\end{cases}
+			     \end{equation*}
+		     \item Exercícios:
+			     \begin{itemize}
+				     \item Mostre que $\{ \sin (n\pi x/L)\}, \quad n = 1, 2, \dots$ é um conjunto de funções  ortogonais no intervalo $0\leq x \leq L$.
+				     \item Determine o conjunto ortonormal correspondente.
+			     \end{itemize}
+	     \end{itemize}
+     \end{slide}
+
+     \begin{slide}[toc=]{Ortogonalização de Gram-Schmidt}
+	     \begin{itemize}
+		     \item O ponto de partida é um conjunto de funções linearmente independentes (LI) $\{ u_n(x) \}$
+		     \item O objetivo é gerar um conjunto de funções ortonormais $\{\phi_n(x)\}$ a partir do conjunto de funções LI
+		     \item Primeiro passo:
+			     \begin{align*}
+				     \psi_0(x) &= u_0(x)\\
+				     \phi_0(x) &= \frac{\psi_0(x)}{||\psi_0(x)||}
+			     \end{align*}
+		     \item Segundo passo:
+			     \begin{equation*}
+				     \psi_1(x) = u_1(x)+a_{10}\phi_0(x)
+  			     \end{equation*}
+			     Como $\psi_1(x)\perp \phi_0(x)$,
+			     \begin{align*}
+				     <\phi_0(x),\psi_1(x)> = \int_a^b \phi_0^\ast (x) \left [u_1(x)+a_{10}\phi_0(x) \right ] w(x)\,dx = 0
+							   %&= \int_a^b \phi_0^\ast (x) u_1(x)w(x)\,dx + a_{10}\int_a^b |\phi_0(x)|^2w(x)\,dx
+			     \end{align*}
+
+	     \end{itemize}
+     \end{slide}
+
+     \begin{slide}[toc=]{Ortogonalização de Gram-Schmidt}
+	     \begin{itemize}
+		     \item Segundo passo (continuação):
+			     \begin{align*}
+				     <\phi_0(x),\psi_1(x)> &= \int_a^b \phi_0^\ast (x) \left [u_1(x)+a_{10}\phi_0(x) \right ] w(x)\,dx\\
+							   &= \int_a^b \phi_0^\ast (x) u_1(x)w(x)\,dx + a_{10}\int_a^b |\phi_0(x)|^2w(x)\,dx = 0
+			     \end{align*}
+			     Como $<\phi_i(x),\phi_i(x)> = 1$,
+			     \begin{align*}
+				     a_{10} &= -\int_a^b\phi_0^\ast(x) u_1(x) w(x)\,dx\\
+				            &= -<\phi_0(x),u_1(x)>
+			     \end{align*}
+			     A funções ortogonal e ortonormal correspondentes são então determinadas:
+			     \begin{equation*}
+				     \psi_1(x) = u_1(x) - <\phi_0(x),u_1(x)>\phi_0(x) \qquad\qquad \phi_1(x) = \frac{\psi_1(x)}{||\psi_1(x)||}
+			     \end{equation*}
+	     \end{itemize}
+     \end{slide}
+     
+     \begin{slide}[toc=]{Ortogonalização de Gram-Schmidt}
+	     \begin{itemize}
+		     \item Terceiro passo:
+			     \begin{equation*}
+				     \psi_2(x) = u_2(x)+a_{21}\phi_1(x)+a_{20}\phi_0(x)
+  			     \end{equation*}
+			     Como $\psi_2(x)\perp \phi_1(x)$ e $\psi_2(x)\perp \phi_0(x)$,
+			     \begin{align*}
+				     <\phi_1(x),\psi_2(x)> &= 0\\
+				     <\phi_0(x),\psi_2(x)> &= 0
+			     \end{align*}
+			     Seguindo o mesmo procedimento do \emph{segundo passo} e lembrando que $<\phi_i(x),\phi_i(x)> = 1$, chega-se ao seguinte resultado:
+			     \begin{align*}
+				     a_{21} &= -<\phi_1(x),u_2(x)>\\
+				     a_{20} &= -<\phi_0(x),u_2(x)>
+			     \end{align*}
+			     A funções ortogonal e ortonormal correspondentes são então determinadas:
+			     \begin{equation*}
+				     \psi_2(x) = u_2(x) - <\phi_1(x),u_2(x)>\phi_1(x)- <\phi_0(x),u_2(x)>\phi_0(x)%  \qquad\qquad \phi_1(x) = \frac{\psi_1(x)}{||\psi_1(x)||}
+			     \end{equation*}
+	     \end{itemize}
+     \end{slide}
+     
+     \begin{slide}[toc=]{Ortogonalização de Gram-Schmidt}
+	     \begin{itemize}
+		     \item Terceiro passo (continuação):\\
+			     A funções ortogonal e ortonormal correspondentes são então determinadas:
+			     \begin{align*}
+				     \psi_2(x) &= u_2(x) - <\phi_1(x),u_2(x)>\phi_1(x)- <\phi_0(x),u_2(x)>\phi_0(x)\\
+				     \phi_2(x) &= \frac{\psi_2(x)}{||\psi_2(x)||}
+			     \end{align*}
+		     \item Generalizando:
+			     \begin{align*}
+				     \psi_n(x) &= \begin{cases}
+					       u_0(x),& n = 0\\
+					       u_n(x) - \sum_{i = 0}^{n-1}<\phi_i(x),u_n(x)>\phi_i(x),& n\neq 0
+				     \end{cases}\\
+				     \phi_n(x) &= \frac{\psi_n(x)}{||\psi_n(x)||}
+			     \end{align*}
+	     \end{itemize}
+     \end{slide}
+
+     \begin{slide}[toc=]{Ortogonalização de Gram-Schmidt}
+	     Exercícios
+	     \begin{enumerate}
+		     \item Mostre que os polinômios de Legendre formam um conjunto de funções ortonormais que pode ser obtido pela aplicação de procedimento de Gram-Schmidt para o conjunto de funções linearmente independentes $u_n(x) = x^n,\quad n=0,1,2,\dots$ no intervalo $-1\leq x \leq 1$ e $w(x) = 1$ (mostre a determinação dos 4 primeiros polinômios).
+		     \item Repita o primeiro exercício para o intervalo $0\leq x \leq 1$ (Polinômios de Legendre deslocados).
+		     \item Repita o primeiro exercício para o intervalo $0\leq x < \infty$ e $w(x) = e^{-x}$ (Polinômios de Laguerre).
+	     \end{enumerate}
+     \end{slide}
+     
+     \section[slide=True]{Série de Fourier generalizada}
+     \begin{slide}[toc=]{Série de Fourier generalizada}
+	     \begin{itemize}
+		     \item Um conjunto de funções ortonormais $\{\phi_n(x)\}$ no intervalo $a\leq x \leq b$ será usado como base para um espaço de funções
+			     \begin{align*}
+				     <\phi_i(x),\phi_j(x)> &= \int_a^b\phi_i^\ast(x) \phi_j(x) w(x)\,dx\\
+				                           &=\begin{cases} 1,\qquad i=j\\ 0,\qquad i\neq j\end{cases}
+			     \end{align*}\pause
+		     \item Assim, funções $f(x)$ podem ser representadas por uma combinação linear das funções que formam a base para o espaço:
+			     \begin{align*}
+				     f(x) &= C_0\phi_0(x) + C_1\phi_1(x) +\dots\\
+				          &= \sum_{n=0}^\infty C_n\phi_n(x)
+			     \end{align*}
+		     %\item Como determinar os coeficientes $C_n$ ?
+	     \end{itemize}
+     \end{slide}
+     
+     \begin{slide}[toc=]{Série de Fourier generalizada}
+	     \begin{itemize}
+		     \item Como determinar os coeficientes $C_n$ ?
+			     \begin{itemize}
+				     \item Primeiramente, iremos calcular o produto interno entre $\phi_m(x)$ e a função $f(x)$:
+					     \begin{align*}
+						     <\phi_m(x), f(x)> &= \int_a^b \phi_m^\ast (x) f(x) w(x)\, dx\\
+						                       &= \int_a^b \phi_m^\ast (x) \left [C_0\phi_0(x) + C_1\phi_1(x) + \cdots + C_m\phi_m(x) + \cdots \right ]\\
+								       &= C_0\int_a^b \phi_m^\ast(x)\phi_0(x) + C_1\int_a^b \phi_m^\ast(x)\phi_1(x)+ \cdots + C_m\int_a^b \phi_m^\ast(x)\phi_m(x)+ \cdots\\
+								       &= C_m
+					     \end{align*}
+			     \end{itemize}
+		     \item Assim, $f(x)$ é dada por
+			     \begin{equation*}
+				     f(x) = \sum_{n=0}^\infty <\phi_n(x),f(x)>\phi_n(x)\qquad\qquad\text{(Série de Fourier generalizada)}
+			     \end{equation*}
+			     
+			     %\begin{itemize}
+			%	     \item Note que para diferentes bases, os coeficientes $C_n$ são naturalmente diferentes também.
+			 %    \end{itemize}
+	     \end{itemize}
+     \end{slide}
+
+\end{document}	
