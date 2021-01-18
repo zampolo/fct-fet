@@ -241,12 +241,12 @@
 	     \begin{itemize}
 		     \item Seja um conjunto de funções ortogonais:
 			     \begin{equation*}
-				     \{ \psi_n(x) \},\quad n=1,2, \dots
+				     \{ \psi_n(x) \},\quad n=0,1,2, \dots
 			     \end{equation*}
 			     onde $<\psi_i(x), \psi_j(x)> = 0,\quad i\neq j$.
 		     \item A partir do conjunto de funções acima, pode-se criar um conjunto de funções ortonormais $\{\phi_n(x)\}$:
 			     \begin{equation*}
-				     \phi_n(x)=\frac{\phi_n(x)}{||\psi_n(x)||}\qquad\qquad 
+				     \phi_n(x)=\frac{\psi_n(x)}{||\psi_n(x)||}\qquad\qquad 
 				     <\phi_i(x),\phi_j(x)>=\begin{cases} 0, & i\neq j\\1, & i=j\end{cases}
 			     \end{equation*}
 		     \item Exercícios:
@@ -373,8 +373,8 @@
 				     \item Primeiramente, iremos calcular o produto interno entre $\phi_m(x)$ e a função $f(x)$:
 					     \begin{align*}
 						     <\phi_m(x), f(x)> &= \int_a^b \phi_m^\ast (x) f(x) w(x)\, dx\\
-						                       &= \int_a^b \phi_m^\ast (x) \left [C_0\phi_0(x) + C_1\phi_1(x) + \cdots + C_m\phi_m(x) + \cdots \right ]\\
-								       &= C_0\int_a^b \phi_m^\ast(x)\phi_0(x) + C_1\int_a^b \phi_m^\ast(x)\phi_1(x)+ \cdots + C_m\int_a^b \phi_m^\ast(x)\phi_m(x)+ \cdots\\
+						                       &= \int_a^b \phi_m^\ast (x) \left [C_0\phi_0(x) + \cdots + C_m\phi_m(x) + \cdots \right ]w(x)\, dx\\
+								       &= C_0\int_a^b \phi_m^\ast(x)\phi_0(x)w(x)\, dx +  \cdots + C_m\int_a^b |\phi_m(x)|^2w(x)\, dx+ \cdots\\
 								       &= C_m
 					     \end{align*}
 			     \end{itemize}
