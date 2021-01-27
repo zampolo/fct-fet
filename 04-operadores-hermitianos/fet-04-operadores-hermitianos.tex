@@ -1,0 +1,191 @@
+\input{../slides-common/preambule}
+
+\pdsetup{
+   lf = {\cursopequeno},
+   rf = {Operadores Hermitianos}, palette = {\palette}, randomdots={false},
+   cf = {\theslide}
+}
+
+\title{\cursogrande\\ \vspace{1cm}Operadores Hermitianos}
+
+\begin{document}
+   \maketitle[randomdots={false}]
+   \begin{slide}{Agenda}
+      \tableofcontents[content=sections]
+   \end{slide}
+
+   \section[ slide = true ]{Operadores adjuntos}
+      \begin{slide}[toc=]{Operadores adjuntos}
+		\begin{itemize}
+			\item O adjunto de um operador linear diferencial $L$, representado por $L^+$, é aquele que atende à igualdade :
+				\begin{equation*}
+					<Lf(x),g(x)> = <f(x),L^+g(x)> 
+				\end{equation*}
+					onde $f(x)$ e $g(x)$ satisfazem certas condições de contorno.
+			\item Exemplo: para a classe de funções quadraticamente integráveis, ou seja,
+				\begin{equation*}
+					<f(x),f(x)> = \int_{-\infty}^\infty |f(x)|^2 dx < \infty
+				\end{equation*}
+				Determine o operador adjunto $L^+$, considerando $L = \frac{d}{dx}$.
+				
+		\end{itemize}
+      \end{slide}
+      \begin{slide}[toc=]{Operadores adjuntos - Exemplos}
+	      \begin{itemize}
+		      \item Determine o operador adjunto (cont.)
+			      \begin{align*}
+					\left < \frac{df(x)}{dx},g(x)\right > &= \int_{-\infty}^\infty \left ( \frac{df(x)}{dx} \right )^\ast g(x)\,dx\\
+					                                      &=\int_{-\infty}^\infty \frac{df^\ast(x)}{dx} g(x)\,dx\\
+									      &= f^\ast(x)g(x)\Big \vert_{-\infty}^\infty - \int_{-\infty}^\infty f^\ast(x)\frac{dg(x)}{dx}\,dx\\
+									      &= \left < f(x), -\frac{dg(x)}{dx} \right >
+					\end{align*}
+					uma vez que $f(x)\rightarrow 0$, quando $x\rightarrow \pm \infty$.
+		\end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Operadores adjuntos - Exemplos}
+	      \begin{itemize}
+		      \item No espaço de funções quadraticamente integráveis no intervalo $-\infty < x <\infty$, encontre os operadores adjuntos de 
+			      \begin{itemize}
+				      \item $L = \frac{d^2}{dx^2}$
+					      \begin{align*}
+						      \left < \frac{d^2f(x)}{dx^2},g(x)\right > &= \left < \frac{d}{dx}\left (\frac{df(x)}{dx}\right ),g(x)\right >\\
+						                                                &= \left < \frac{df(x)}{dx},-\frac{dg(x)}{dx}\right >\\
+												&= \left < f(x),\frac{d^2g(x)}{dx^2}\right >
+					      \end{align*}
+%				      \item $L = \frac{1}{i}\frac{d}{dx}$
+%					      \begin{align*}
+%						      \left < \frac{1}{i}\frac{df(x)}{dx},g(x)\right > &= -\frac{1}{i}\left < \frac{d}{dx}\left (\frac{df(x)}{dx}\right ),g(x)\right >\\
+%						                                                &= -\frac{1}{i}\left < f(x),-\frac{dg(x)}{dx}\right >\\
+%												&= \left < f(x),\frac{1}{i}\frac{dg(x)}{dx}\right >
+%					      \end{align*}
+			      \end{itemize}
+	      \end{itemize}
+      \end{slide}
+      
+      \begin{slide}[toc=]{Operadores adjuntos - Exemplos}
+	      \begin{itemize}
+		      \item No espaço de funções quadraticamente integráveis no intervalo $-\infty < x <\infty$, encontre os operadores adjuntos de 
+			      \begin{itemize}
+%				      \item $L = \frac{d^2}{dx^2}$
+%					      \begin{align*}
+%						      \left < \frac{d^2f(x)}{dx^2},g(x)\right > &= \left < \frac{d}{dx}\left (\frac{df(x)}{dx}\right ),g(x)\right >\\
+%						                                                &= \left < \frac{df(x)}{dx},-\frac{dg(x)}{dx}\right >\\
+%												&= \left < f(x),\frac{d^2g(x)}{dx^2}\right >
+%					      \end{align*}
+				      \item $L = \frac{1}{i}\frac{d}{dx}$
+					      \begin{align*}
+						      \left < \frac{1}{i}\frac{df(x)}{dx},g(x)\right > &= -\frac{1}{i}\left < \frac{d}{dx}\left (\frac{df(x)}{dx}\right ),g(x)\right >\\
+						                                                &= -\frac{1}{i}\left < f(x),-\frac{dg(x)}{dx}\right >\\
+												&= \left < f(x),\frac{1}{i}\frac{dg(x)}{dx}\right >
+					      \end{align*}
+			      \end{itemize}
+	      \end{itemize}
+      \end{slide}
+
+   \section[ slide = true ]{Operadores Hermitianos}
+      \begin{slide}[toc=]{Operadores Hermitianos}
+	      \begin{itemize}
+		      \item Quando o operador adjunto $L^+$ é igual ao operador $L$, diz-se que o operador em questão é auto-adjunto ou Hermitiano: $L = L^+$
+		      \item Note que os dois últimos exemplos são de operadores Hermitianos
+		      \item Em espaços vetoriais infinitos, os operadores Hermitianos exercem o mesmo papel que as matrizes Hermitianas em espaços vetoriais finitos 
+		      \item Matriz Hermitiana ($A$):
+			      \begin{equation*}
+				      A = A^H = (A^T)^\ast
+			      \end{equation*}
+			      Os \emph{autovalores} de $A$ \emph{são reais} e seus \emph{autovetores} formam uma \emph{base ortogonal}.
+		      \item Problema do autovalor para operadores diferenciais:
+			      \begin{equation*}
+				      L\phi(x) = \lambda \phi(x)
+			      \end{equation*}
+			      A função $\phi(x)$ que satisfaz a equação acima, bem como as condições de contorno impostas, é denominada \emph{auto-função}; a constante $\lambda$, por sua vez, é o \emph{autovalor} associado. 
+	      \end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Operadores Hermitianos}
+	      \begin{itemize}
+		      \item Os autovalores de um operador Hermitiano são números reais ($\lambda_n \in \mathbb R$)
+		      \item O conjunto de autofunções de um operador Hermitiano $\{ \phi_n(x) \}$ forma uma base ortogonal para um espaço de funções
+		      \item Outros paralelos:
+			      \begin{itemize}
+				      \item Matriz Hermitiana
+					      \begin{equation*}
+						      a_{ij} = a_{ji}^\ast
+					      \end{equation*}
+				      \item Operador Hermitiano
+					      \begin{align*}
+						      L_{ij} &= <\phi_i(x),L\phi_j(x)>\\
+						             &= <\phi_j(x),L\phi_i(x)>^\ast\\
+							     &= L_{ji}^\ast
+					      \end{align*}
+			      \end{itemize}
+	      \end{itemize}
+      \end{slide}
+   
+   \section[ slide = true ]{Propriedade dos operadores Hermitianos}
+   \begin{slide}[toc=]{Propriedade dos operadores Hermitianos}
+	   \begin{itemize}
+		   \item Os autovalores de operadores Hermitianos são números reais
+			   \begin{align*}
+				   L\phi(x) &= \lambda \phi(x)\\
+				   <L\phi(x), \phi(x)> &= <\lambda \phi(x),\phi(x)>\\
+				                       &= \lambda^\ast <\phi(x),\phi(x)>
+			   \end{align*}
+			   Como o operador $L$ é Hermitiano,
+			   \begin{align*}
+				   <L\phi(x),\phi(x)> &= <\phi(x),L\phi(x)>\\
+				                      &= <\phi(x),\lambda \phi(x)>\\
+						      &= \lambda <\phi(x),\phi(x)>
+			   \end{align*}
+			   Logo,
+			   \begin{align*}
+				   \lambda^\ast<\phi(x),\phi(x)> &= \lambda<\phi(x),\phi(x)>\\
+				   \lambda^\ast &= \lambda\qquad (\lambda \in \mathbb R)
+			   \end{align*}
+	   \end{itemize}
+   \end{slide}
+   
+   \begin{slide}[toc=]{Propriedade dos operadores Hermitianos}
+	   \begin{itemize}
+		   \item As autofunções de operadores Hermitianos formam uma base ortogonal
+			   \begin{align*}
+				   L\phi_i(x) &= \lambda_i \phi_i(x)\\
+				   L\phi_j(x) &= \lambda_j \phi_j(x)
+			   \end{align*}
+			   Considerando que $\lambda_i  \neq \lambda_j$, 
+			   \begin{align*}
+				   <L\phi_i(x),\phi_j(x)> &= <\lambda_i \phi_i(x),\phi_j(x)>\\
+				                          &= \lambda_i^\ast<\phi_i(x),\phi_j(x)>\\
+							  &= \lambda_i<\phi_i(x),\phi_j(x)>
+			   \end{align*}
+			   Como o operador é Hermitiano,
+			   \begin{align*}
+				   <L\phi_i(x),\phi_j(x)> &= <\phi_i(x),L\phi_j(x)>\\
+				                          &= <\phi_i(x),\lambda_j \phi_j(x)>\\
+							  &= \lambda_j<\phi_i(x),\phi_j(x)>
+			   \end{align*}
+	   \end{itemize}
+   \end{slide}
+
+   \begin{slide}[toc=]{Propriedade dos operadores Hermitianos}
+	   \begin{itemize}
+		   \item As autofunções de operadores Hermitianos formam uma base ortogonal (cont.)
+			   %Logo,
+			   \begin{align*}
+				   \lambda_i<\phi_i(x),\phi_j(x)> & =\lambda_j<\phi_i(x),\phi_j(x)>\\
+				   (\lambda_i - \lambda_j)<\phi_i(x),\phi_j(x)> &= 0
+			   \end{align*}
+			   Como $\lambda_i\neq\lambda_j$, a equação só pode ser satisfeita se 
+			   \begin{equation*}
+				   <\phi_i(x),\phi_j(x)> = 0
+			   \end{equation*}
+			   ou seja, $\phi_i(x)$ e $\phi_j(x)$ são ortogonais.
+		   \item As autofunções de um operador Hermitiano formam um conjunto completo.\\ Em outras palavras, qualquer função $f(x)$ parcialmente contínua pode ser expressa como uma série de Fourier generalizada de autofunções de $L$:
+			   \begin{equation*}
+				   f(x) = \sum_{n=0}^\infty <f(x),\phi_n(x)>\phi_n(x)
+			   \end{equation*}
+			   onde $L\phi_n(x) = \lambda_n\phi_n(x)$.
+			   Estudar o exemplo 3.3.2 do livro texto.
+	   \end{itemize}
+   \end{slide}
+\end{document}	
