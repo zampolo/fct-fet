@@ -1,0 +1,204 @@
+\input{../slides-common/preambule}
+
+\pdsetup{
+   lf = {\cursopequeno},
+   rf = {Teoria de Sturm-Liouville}, palette = {\palette}, randomdots={false},
+   cf = {\theslide}
+}
+
+\title{\cursogrande\\ \vspace{1cm}Teoria de Sturm-Liouville}
+
+\begin{document}
+   \maketitle[randomdots={false}]
+   \begin{slide}{Agenda}
+      \tableofcontents[content=sections]
+   \end{slide}
+
+   \section[ slide = true ]{Equações de Sturm-Liouville}
+   \begin{slide}[toc=]{Equações de Sturm-Liouville}
+		\begin{itemize}
+			\item Tome-se como ponto de partida a equação diferencial linear de segunda ordem:
+				\begin{equation*}
+					A(x)\frac{d^2y(x)}{dx^2} + B(x)\frac{dy(x)}{dx}+ C(x)y(x)+\lambda D(x)y(x) = 0 
+				\end{equation*}
+					onde $\lambda$ é um parâmetro a ser determinada pelas condições de contorno do problema.
+			\item Uma forma alternativa da equação acima seria:
+				\begin{equation*}
+					\frac{d^2y(x)}{dx^2} + b(x)\frac{dy(x)}{dx}+ c(x)y(x)+\lambda d(x)y(x) = 0 
+				\end{equation*}
+				onde $b(x) = \frac{B(x)}{A(x)}$, $c(x) = \frac{C(x)}{A(x)}$, e $d(x) = \frac{D(x)}{A(x)}$, com $A(x)\neq 0$.
+		\end{itemize}
+      \end{slide}
+      
+      \begin{slide}[toc=]{Equações de Sturm-Liouville}
+		\begin{itemize}
+			\item Seja definido o fator integrante $p(x)$
+				\begin{equation*}
+					p(x) = e^{\int^x b(x^\prime)\,dx^\prime} 
+				\end{equation*}
+			\item Multiplicando a equação normalizada por $p(x)$, tem-se 
+				\begin{equation*}
+					p(x)\frac{d^2y(x)}{dx^2} + p(x)b(x)\frac{dy(x)}{dx}+ p(x)c(x)y(x)+\lambda p(x)d(x)y(x) = 0 
+				\end{equation*}
+			\item Contudo:
+						\begin{align*}
+							\frac{dp(x)}{dx} &= \frac{d}{dx}e^{\int^x b(x^\prime)\,dx^\prime}\\
+									 &= e^{\int^x b(x^\prime)\,dx^\prime}\frac{d}{dx}\int^x b(x^\prime)\,dx^\prime\\
+									 &= p(x)b(x)
+						\end{align*}
+		\end{itemize}
+      \end{slide}
+   
+      \begin{slide}[toc=]{Equações de Sturm-Liouville}
+		\begin{itemize}
+			\item Seja definido o fator integrante $p(x)$
+				\begin{equation*}
+					p(x) = e^{\int^x b(x^\prime)\,dx^\prime} 
+				\end{equation*}
+			\item Multiplicando a equação normalizada por $p(x)$, tem-se 
+				\begin{equation*}
+					p(x)\frac{d^2y(x)}{dx^2} + p(x)b(x)\frac{dy(x)}{dx}+ p(x)c(x)y(x)+\lambda p(x)d(x)y(x) = 0 
+				\end{equation*}
+			\item Contudo:
+						\begin{align*}
+							\frac{dp(x)}{dx} &= p(x)b(x)\\
+							\frac{d}{dx}\left [p(x)\frac{dy(x)}{dx} \right ] &= \frac{dp(x)}{dx}\frac{dy(x)}{dx}+p(x)\frac{d^2y(x)}{dx^2}\\
+									 &= p(x)\frac{d^2y(x)}{dx^2}+ p(x)b(x)\frac{dy(x)}{dx}
+						\end{align*}
+		\end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Equações de Sturm-Liouville}
+		\begin{itemize}
+			\item Assim, a equação  
+				\begin{equation*}
+					p(x)\frac{d^2y(x)}{dx^2} + p(x)b(x)\frac{dy(x)}{dx}+ p(x)c(x)y(x)+\lambda p(x)d(x)y(x) = 0 
+				\end{equation*}
+				pode ser rescrita como (equação de Sturm-Liouville):
+				\begin{equation*}
+					\frac{d}{dx}\left [p(x)\frac{dy(x)}{dx} \right ]+ q(x)y(x)+\lambda w(x)y(x) = 0 
+				\end{equation*}
+				onde:
+				\begin{align*}
+					q(x) &= p(x)c(x)\\
+					w(x) &= p(x)d(x)
+				\end{align*}
+			\item Condições:
+				\begin{itemize}
+					\item $p(x)$, $q(x)$, $w(x)$ são funções reais e contínuas;
+					\item $p(x)$, e $w(x)$ são positivas em um dado intervalo.
+				\end{itemize}
+		\end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Equações de Sturm-Liouville}
+		\begin{itemize}
+			\item As equações de Sturm-Liouville podem ser postas da forma do problema de autovalores:
+				\begin{equation*}
+					Ly(x) = \lambda y(x)
+				\end{equation*}
+				mediante a definição do operador de Sturm-Liouville:
+				\begin{equation*}
+					L = -\frac{1}{w(x)}\left [ \frac{d}{dx}\left ( p(x)\frac{d}{dx} \right ) + q(x) \right ]
+				\end{equation*}
+			\item Ou seja 
+				\begin{align*}
+					\frac{d}{dx}\left [p(x)\frac{dy(x)}{dx} \right ]+ q(x)y(x)+\lambda w(x)y(x) &= 0 \\
+					\frac{d}{dx}\left [p(x)\frac{dy(x)}{dx} \right ]+ q(x)y(x)&=-\lambda w(x)y(x) \\
+					-\frac{1}{w(x)}\left \{\frac{d}{dx}\left [p(x)\frac{dy(x)}{dx} \right ]+ q(x)y(x)\right \} &=\lambda y(x)
+				\end{align*}
+		\end{itemize}
+      \end{slide}
+   
+   \section[ slide = true ]{Condições de contorno de problemas de Sturm-Liouville}
+      \begin{slide}[toc=]{Condições de contorno de problemas de Sturm-Liouville}
+		\begin{itemize}
+			\item Os operadores de Sturm-Liouville são operadores Hermitianos:
+				\begin{align*}
+					<Lf(x),g(x)> &= \int_a^b\left \{ -\frac{1}{w(x)}\left [ \frac{d}{dx}\left ( p(x)\frac{d}{dx} \right ) + q(x) \right ]f(x)\right \}^\ast g(x) w(x)\,dx\\
+					&= -\int_a^b \frac{d}{dx}\left ( p(x)\frac{df^\ast(x)}{dx} \right ) g(x)\,dx -\int_a^b q(x) f^\ast(x)g(x)\,dx
+				\end{align*}
+				Lembrando que $p(x)$, $q(x)$, e $w(x)$ são funções reais.
+			\item Considerando que
+				\begin{align*}
+					\int_a^b \frac{d}{dx}\left ( p(x)\frac{df^\ast(x)}{dx} \right ) g(x)\,dx &= p(x)\frac{df^\ast(x)}{dx}g(x)\Big \vert_a^b - \int_a^bp(x)\frac{df^\ast (x)}{dx}\frac{dg(x)}{dx} dx\\
+					\int_a^bp(x)\frac{df^\ast (x)}{dx}\frac{dg(x)}{dx} dx &= \int_a^b\frac{df^\ast (x)}{dx}p(x)\frac{dg(x)}{dx} dx\\
+					&=f^\ast (x)p(x)\frac{dg(x)}{dx}\Big \vert_a^b - \int_a^bf^\ast (x)\frac{d}{dx}\left (p(x)\frac{dg(x)}{dx}\right ) dx
+				\end{align*}
+		\end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Condições de contorno de problemas de Sturm-Liouville}
+		\begin{itemize}
+			\item Juntando tudo, tem-se
+				\begin{align*}
+					<Lf(x),g(x)> =& - p(x)\frac{df^\ast(x)}{dx}g(x)\Big \vert_a^b+f^\ast (x)p(x)\frac{dg(x)}{dx}\Big \vert_a^b +\\
+					              &- \int_a^bf^\ast (x)\frac{d}{dx}\left (p(x)\frac{dg(x)}{dx}\right ) dx-\int_a^b q(x) f^\ast(x)g(x)\,dx\\
+						      =&  p(x)\left [ f^\ast (x)\frac{dg(x)}{dx}-\frac{df^\ast(x)}{dx}g(x)\right ]\Bigg \vert_a^b + \\
+						       &+\int_a^bf^\ast (x)\left \{-\frac{1}{w(x)} \left [\frac{d}{dx}\left (p(x)\frac{d}{dx}\right ) + q(x)\right ]g(x)\right \} w(x)\,dx\\
+						      =&p(x)\left [ f^\ast (x)\frac{dg(x)}{dx}-\frac{df^\ast(x)}{dx}g(x)\right ]\Bigg \vert_a^b + <f(x),Lg(x)>
+				\end{align*}
+%			\item Se o espaço de funções satisfaz
+%				\begin{equation*}
+%					p(x)\left [ f^\ast (x)\frac{dg(x)}{dx}-\frac{df^\ast(x)}{dx}g(x)\right ]\Bigg \vert_a^b = 0
+%				\end{equation*}
+%				Então $<Lf(x),g(x)> = <f(x),Lg(x)>$, ou seja, o operador de Sturm-Liouville é Hermitiano.
+%
+		\end{itemize}
+      \end{slide}      
+      
+      \begin{slide}[toc=]{Condições de contorno de problemas de Sturm-Liouville}
+		\begin{itemize}
+			\item Repetindo o resultado principal do slide anterior
+				\begin{align*}
+					<Lf(x),g(x)> =p(x)\left [ f^\ast (x)\frac{dg(x)}{dx}-\frac{df^\ast(x)}{dx}g(x)\right ]\Bigg \vert_a^b + <f(x),Lg(x)>
+				\end{align*}
+			\item Se o espaço de funções satisfaz
+				\begin{equation*}
+					p(x)\left [ f^\ast (x)\frac{dg(x)}{dx}-\frac{df^\ast(x)}{dx}g(x)\right ]\Bigg \vert_a^b = 0
+				\end{equation*}
+				Então $<Lf(x),g(x)> = <f(x),Lg(x)>$, ou seja, o operador de Sturm-Liouville é Hermitiano.
+			\item O que se chama de \emph{Problemas de Sturm-Liouville} consiste na equação de Sturm-Liouville, mais o conjunto de condições de contorno.
+
+		\end{itemize}
+      \end{slide}
+   
+      \begin{slide}[toc=]{Condições de contorno de problemas de Sturm-Liouville}
+		\begin{itemize}
+			\item Uma vez que o operador de Sturm-Liouville seja Hermitiano, as autofunções do problema de Sturm-Liouville são ortogonais entre si e formam uma base completa.
+			\item Sejam $y_m(x)$ e $y_n(x)$ soluções da equação diferencial homogênea de segunda ordem 
+				\begin{equation*}
+					\left [ p(x)y^\prime (x)\right ]^\prime + q(x)y(x) + \lambda w(x)y(x) = 0
+				\end{equation*}
+				no intervalo $a\leq x\leq b$, e satisfazem as condições iniciais:
+				\begin{equation*}
+					p(x)\left [ f^\ast (x)\frac{dg(x)}{dx}-\frac{df^\ast(x)}{dx}g(x)\right ]\Bigg \vert_a^b = 0
+				\end{equation*}
+				onde $f(x) = y_n(x)$ e $g(x) = y_m(x)$.
+		\end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Condições de contorno de problemas de Sturm-Liouville}
+		\begin{itemize}
+			\item Substituindo $f(x) = y_n(x)$ e $g(x) = y_m(x)$ em 
+				\begin{equation*}
+					\left [ p(x)y^\prime (x)\right ]^\prime + q(x)y(x) + \lambda w(x)y(x) = 0
+				\end{equation*}
+				tem-se
+				\begin{align*}
+					p(b)\left [ y_n^\ast(b)y_m^\prime(b)-(y_n^\prime(b))^\ast(b)y_m(b)\right ] - p(a)\left [ y_n^\ast(a)y_m^\prime(a)-(y_n^\prime(a))^\ast y_m(a)\right ] =& 0\\
+					p(b)\begin{vmatrix}y_n^\ast(b) & (y_n^\prime(b))^\ast\\ y_m(b) & y_m^\prime(b)\end{vmatrix}-p(a)\begin{vmatrix}y_n^\ast(a) & (y_n^\prime(a))^\ast\\ y_m(a) & y_m^\prime(a)\end{vmatrix}=& 0
+				\end{align*}
+			\item Considerando as funções $y_m(x)$ e $y_n(x)$ reais, 
+				\begin{equation*}
+					p(b)\begin{vmatrix}y_n(b) & y_n^\prime(b)\\ y_m(b) & y_m^\prime(b)\end{vmatrix}-p(a)\begin{vmatrix}y_n(a) & y_n^\prime(a)\\ y_m(a) & y_m^\prime(a)\end{vmatrix}= 0
+				\end{equation*}
+		\end{itemize}
+      \end{slide}
+   \section[ slide = true ]{Problemas de Sturm-Liouville regulares}
+   
+   \section[ slide = true ]{Problemas de Sturm-Liouville periódicos}
+   
+   \section[ slide = true ]{Problemas de Sturm-Liouville singulares}
+      
+\end{document}	
