@@ -196,8 +196,102 @@
 		\end{itemize}
       \end{slide}
    \section[ slide = true ]{Problemas de Sturm-Liouville regulares}
+      \begin{slide}[toc=]{Problemas de Sturm-Liouville regulares}
+	      \begin{itemize}
+		      \item Considerado as condições iniciais definidas para que o operador de Sturm-Liouville $L$ seja Hermitiano:
+				\begin{equation*}
+					p(b)\begin{vmatrix}y_n(b) & y_n^\prime(b)\\ y_m(b) & y_m^\prime(b)\end{vmatrix}-p(a)\begin{vmatrix}y_n(a) & y_n^\prime(a)\\ y_m(a) & y_m^\prime(a)\end{vmatrix}= 0
+				\end{equation*}
+			\item Esta classe de problemas considera que $p(a)\neq 0$ e $p(b)\neq 0$
+			\item As condições iniciais acima podem ser rescritas como
+				\begin{align*}
+					\alpha_1y(a) + \alpha_2 y^\prime (a) &= 0\\
+					\beta_1 y(b) + \beta_2 y^\prime (b) &= 0\\
+				\end{align*}
+				onde $\alpha_1$ e $\alpha_2$ não são ambos iguais a zero; e $\beta_1$ e $\beta_2$ não são ambos iguais a zero
+	      \end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Problemas de Sturm-Liouville regulares}
+	      \begin{itemize}
+		      \item Supondo que $y_n(x)$ e $y_m(x)$ são soluções para o problema de Sturm-Liouville
+				\begin{align*}
+					\alpha_1y_n(a) + \alpha_2 y_n^\prime (a) &= 0\\
+					\alpha_1y_m(a) + \alpha_2 y_m^\prime (a) &= 0
+				\end{align*}
+				\twocolumn{
+				Como ou $\alpha_1\neq 0$ ou $\alpha_2\neq 0$, 
+				\begin{equation*}
+					\begin{vmatrix}y_n(a) & y_n^\prime(a)\\ y_m(a) & y_m^\prime(a)\end{vmatrix}= 0
+				\end{equation*}}{
+				E como ou $\beta_1\neq 0$ ou $\beta_2\neq 0$, 
+				\begin{equation*}
+					\begin{vmatrix}y_n(b) & y_n^\prime(b)\\ y_m(b) & y_m^\prime(b)\end{vmatrix}= 0
+				\end{equation*}}
+			\item Claramente,
+				\begin{equation*}
+					p(b)\begin{vmatrix}y_n(b) & y_n^\prime(b)\\ y_m(b) & y_m^\prime(b)\end{vmatrix}-p(a)\begin{vmatrix}y_n(a) & y_n^\prime(a)\\ y_m(a) & y_m^\prime(a)\end{vmatrix}= 0
+				\end{equation*}
+	      \end{itemize}
+      \end{slide}
+   
+      \begin{slide}[toc=]{Problemas de Sturm-Liouville regulares}
+	      \begin{itemize}
+		      \item Exemplo: Mostre que para $0\leq x \leq 1$, o problema
+			      \begin{align*}
+				      y^{\prime\prime}(x) + \lambda y(x) &= 0\\
+				      y(0) = 0, y(1) &= 0
+			      \end{align*}
+			      é um problema de Sturm-Liouville regular.
+			      \begin{itemize}
+				      \item Primeiro passo: identificar os elementos de equação de Sturm-Liouville:
+					      \begin{equation*}
+						      \left [ p(x)y^\prime (x)\right ]^\prime + q(x)y(x) + \lambda w(x)y(x) = 0
+					      \end{equation*}
+			      Nesse caso $p(x) = 1$, $q(x) = 0$, e $w(x) = 1$.\\
+		      		      \item Segundo passo: verificar se
+					      \begin{itemize}
+						      \item $p(x)$, $q(x)$, $w(x)$ são funções reais e contínuas;
+						      \item $p(x)$, e $w(x)$ são positivas em um dado intervalo.
+					      \end{itemize}
+			      \end{itemize}
+	      \end{itemize}
+      \end{slide}
+
+      \begin{slide}[toc=]{Problemas de Sturm-Liouville regulares}
+	      \begin{itemize}
+		      \item Exemplo (continuação):
+			      \begin{itemize}
+				      \item Terceiro passo: verificar de o sistema abaixo possui solução não trivial.
+					      \begin{align*}
+						      \alpha_1y(a) + \alpha_2 y^\prime (a) &= 0\\
+						      \beta_1 y(b) + \beta_2 y^\prime (b) &= 0
+					      \end{align*}
+					      para $a=0$ e $b= 1$. 
+					      Considerando as condições iniciais dadas: $y(0) = 0$, e $ y(1) = 0$, conclui-se que 
+					      \begin{align*}
+						      \alpha_1 = 1, \quad \alpha_2 = 0\\
+						      \beta_1 = 1, \quad \beta_2 = 0
+					      \end{align*}
+					      ou seja, há solução não trivial para o sistema.
+				      \item Conclusão: como todas as condições são satisfeitas, trata-se de um problema de Sturm-Liouville regular.
+			      \end{itemize}
+	      \end{itemize}
+      \end{slide}
    
    \section[ slide = true ]{Problemas de Sturm-Liouville periódicos}
+      \begin{slide}[toc=]{Problemas de Sturm-Liouville periódicos}
+	      \begin{itemize}
+		      \item Seja o intervalo $a\leq x \leq b$, se $p(a) = p(b)$, então as condições de contorno periódicas, 
+			      \begin{equation*}
+				      y(a) = y(b), \qquad y^\prime (a)= y^\prime (b)
+			      \end{equation*}
+			      também satisfazem 
+				\begin{equation*}
+					p(b)\begin{vmatrix}y_n(b) & y_n^\prime(b)\\ y_m(b) & y_m^\prime(b)\end{vmatrix}-p(a)\begin{vmatrix}y_n(a) & y_n^\prime(a)\\ y_m(a) & y_m^\prime(a)\end{vmatrix}= 0
+				\end{equation*}
+	      \end{itemize}
+      \end{slide}
    
    \section[ slide = true ]{Problemas de Sturm-Liouville singulares}
       
